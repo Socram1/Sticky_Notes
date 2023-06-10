@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "All of my";
+}
+
+<h1>Sticky</h1>
+
+<form action="/Stickies/Create" method="post">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <input class="form-control" type="text" data-val="true" data-val-required="The Body field is required." id="Note" name="Note" value="" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Make new sticky!" class="btn btn-primary" />
+    </div>
+</form>
+
+<div class="stickys" id="stickies">
+    @foreach (var notes in Model)
+    {
+        <div class="sticky">
+            @notes.Note
+        </div>
+    }
+</div>
+
+
